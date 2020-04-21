@@ -2,6 +2,19 @@ var express = require("express");
 
 var PORT = process.env.PORT || 8080;
 
+if(process.env.JAWSDB_URL){
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection =mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'Ellycia93',
+    database: 'burgers_db'
+  });
+};
+
+
+
 var app = express();
 
 
