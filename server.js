@@ -1,11 +1,12 @@
 var express = require("express");
 
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3306;
 
 if(process.env.JAWSDB_URL){
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
   connection =mysql.createConnection({
+    port: 3306,
     host: 'localhost',
     user: 'root',
     password: 'Ellycia93',
@@ -19,7 +20,6 @@ var app = express();
 
 
 app.use(express.static("public"));
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
